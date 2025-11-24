@@ -1,0 +1,31 @@
+---
+title: "Untitled"
+format: html
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(fpp3)
+library(gt)
+```
+
+## Data import/ preparation
+
+```{r}
+# aggregate into Purpose
+data("tourism")
+data <- tourism |>
+  group_by(Purpose) |>
+  summarise(Trips = sum(Trips))
+```
+
+## Data visualization
+
+```{r}
+# visualize the data with autoplot and facets by purpose
+data |> 
+    autoplot(Trips) +
+  labs(y = "Trips",
+        title = "Tourism Data") +
+    facet_wrap(~Purpose, ncol = 1)
+  theme_minimal()
+```
