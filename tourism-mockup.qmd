@@ -26,6 +26,6 @@ data |>
     autoplot(Trips) +
   labs(y = "Trips",
         title = "Tourism Data") +
-    facet_wrap(~Purpose, ncol = 1)
+    facet_wrap(~Purpose, ncol = 1) +
   theme_minimal()
 ```
